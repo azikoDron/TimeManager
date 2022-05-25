@@ -23,7 +23,7 @@ class Choice(models.Model):
         return self.choice_text
 
 
-# DEBUG
+# DEBUG 
 # if __name__ == '__main__':
     # q = Question()
 
