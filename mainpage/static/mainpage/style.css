@@ -1,16 +1,40 @@
-.container {
-    width: 100%;
-    border: 1px solid gray;
-}
-
 header, footer {
     padding: 1em;
     color: white;
-    background-color: green;
+    background-color: #234;
     clear: left;
-    text-align: center;
+    text-align: left;
 }
 
-li a {
-    color: black;
+.header1 {
+    list-style-type: none;
+    margin: 0;
+    padding 0;
+    overflow: hidden;
+}
+.header1 .logo {
+    float: left;
+}
+.header1 .login { float: right; }
+
+.banner_container {
+    list-style-type: none;
+    margin: 0;
+    padding 0;
+    overflow: hidden;
+    background-color: #233;
+}
+.banner {
+    float: right;
+    text-align: center;
+}
+.banner a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px 18px;
+    text-decoration: none;
+}
+
+.banner a:hover { background-color: #111; color: white;
 }

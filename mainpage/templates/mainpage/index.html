@@ -10,23 +10,28 @@
     <link rel="stylesheet" type="text/css" href="{% static 'mainpage/style.css' %}">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h4>Metrics</h4>
-        </header>
-        <nav></nav>
-        <section></section>
-        <article>
-            {% if latest_question_list %}
-                <ul>
-                {% for question in latest_question_list %}
-                    <li><a href="{% url 'mainpage:detail' question.id %}">{{ question.question_text }}</a></li>
-                {% endfor %}
-                </ul>
-            {% else %}
-                <p>No polls are available.</p>
-            {% endif %}
-        </article>
-    </div>
+    <header>
+        <ul class="header1">
+            <li class="logo"><h4>LOGO</h4></li>
+            <li class="login">Login</li>
+        </ul>
+    </header>
+    <ul class="banner_container">
+        <li class="banner"><a href="#lt">LT</a></li>
+        <li class="banner"><a href="#sql">SQL</a></li>
+        <li class="banner"><a href="#python">Python</a></li>
+    </ul>
+    <section></section>
+    <article>
+        {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+            <li><a href="{% url 'mainpage:detail' question.id %}">{{ question.question_text }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No polls are available.</p>
+        {% endif %}
+    </article>
 </body>
 </html>
