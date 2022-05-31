@@ -1,9 +1,8 @@
 header, footer {
     padding: 1em;
     color: white;
-    background-color: #234;
+    background-color: #235;
     clear: left;
-    text-align: left;
 }
 
 .header1 {
@@ -12,9 +11,13 @@ header, footer {
     padding 0;
     overflow: hidden;
 }
-.header1 .logo {
+.header1 .logo a {
     float: left;
+    color: white;
+    text-decoration: none;
 }
+.logo a:hover { color: red; }
+
 .header1 .login { float: right; }
 
 .banner_container {
@@ -22,7 +25,7 @@ header, footer {
     margin: 0;
     padding 0;
     overflow: hidden;
-    background-color: #233;
+    background-color: #234;
 }
 .banner {
     float: right;
@@ -35,6 +38,5 @@ header, footer {
     padding: 10px 18px;
     text-decoration: none;
 }
-
-.banner a:hover { background-color: #111; color: white;
+.banner a:hover { background-color: #111; color: red;
 }
