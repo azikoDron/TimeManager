@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title%} Landing {% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mainpage/style.css' %}">
+</head>
+<body>
+    {% block header %}
+    <header>
+        <ul class="header1">
+            <li class="logo"><a href="{% url 'mainpage:index' %}"><h3>LOGO</h3></a></li>
+            <li class="login">Login</li>
+        </ul>
+    </header>
+    <ul class="banner_container">
+        <li class="banner"><a href="#lt">LT</a></li>
+        <li class="banner"><a href="#sql">SQL</a></li>
+        <li class="banner"><a href="#python">Python</a></li>
+    </ul>
+    {% endblock header %}
+
+    <section></section>
+    {% block content %}
+
+    {% endblock content %}
+
+    {% block footer %}
+    {% endblock footer %}
+</body>
+</html>

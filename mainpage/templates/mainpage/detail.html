@@ -1,3 +1,7 @@
+{% extends "./base.html" %}
+
+
+{% block content %}
 <form action="{% url 'mainpage:vote' question.id %}" method="post">
 {% csrf_token %}
 <fieldset>
@@ -10,7 +14,7 @@
 </fieldset>
 <input type="submit" value="Vote">
 </form>
-
+{% endblock content %}
 
 
 
