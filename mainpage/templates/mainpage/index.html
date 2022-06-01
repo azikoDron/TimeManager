@@ -3,14 +3,14 @@
 
 {% block content %}
 <article>
-    {% if latest_question_list %}
+    {% if latest_issue_list %}
     <ul>
-        {% for question in latest_question_list %}
-        <li><a href="{% url 'mainpage:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% for issue in latest_issue_list %}
+        <li><a href="{% url 'mainpage:detail' issue.id %}">{{ issue.issue_topic }}</a></li>
         {% endfor %}
     </ul>
     {% else %}
-    <p>No polls are available.</p>
+    <p>No news are available.</p>
     {% endif %}
 </article>
 {% endblock content %}

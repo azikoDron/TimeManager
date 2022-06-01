@@ -3,44 +3,44 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
-from .models import Choice, Question
+from .models import Issue, Issue_comment
 
 
 class IndexView(generic.ListView):
     template_name = 'mainpage/index.html'
-    context_object_name = 'latest_question_list'
+    context_object_name = 'latest_issue_list'
 
     # queryset = Question.objects.order_by('-pub_date')[:5]
     # equivalent
     def get_queryset(self):
         """Return the last five published questions."""
-        return Question.objects.order_by('-pub_date')[:5]
+        return Issue.objects.order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
-    model = Question
+    model = Issue
     template_name = 'mainpage/detail.html'
 
 
 class ResultsView(generic.DetailView):
-    model = Question
+    model = Issue
     template_name = 'mainpage/results.html'
 
 
-def vote(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
+def vote(request, issue):
+    issue = get_object_or_404(Issue, pk=issue)
     try:
-        selected_choice = question.choice_set.get(pk=request.POST['choice'])
-    except(KeyError, Choice.DoesNotExist):
+        selected_issue = issue.choice_set.get(pk=request.POST['issue'])
+    except(KeyError, Issue_comment.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'mainpage/detail.html', {
-            'question': question,
+            'issue': issue,
             'error_message': "You didn't select a choice.",
         })
     else:
-        selected_choice.votes += 1
-        selected_choice.save()
+        selected_issue.comment_text += request.POST['issue']
+        selected_issue.save()
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('mainpage:results', args=(question.id,)))
+        return HttpResponseRedirect(reverse('mainpage:detail', args=(issue.id,)))

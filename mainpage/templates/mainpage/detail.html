@@ -2,17 +2,16 @@
 
 
 {% block content %}
-<form action="{% url 'mainpage:vote' question.id %}" method="post">
+<form action="{% url 'mainpage:vote' issue.id %}" method="post">
 {% csrf_token %}
 <fieldset>
-    <legend><h1>{{ question.question_text }}</h1></legend>
+    <legend><h5>{{ issue.issue_topic }}</h5></legend>
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-    {% for choice in question.choice_set.all %}
-        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-    {% endfor %}
+        {{ issue.issue_text }}
+        <input type="text" name="issue" id="issue">
+<!--        <label for="issue">{{ issue.issue_text }}</label><br>-->
 </fieldset>
-<input type="submit" value="Vote">
+<input type="submit" value="submit">
 </form>
 {% endblock content %}
 

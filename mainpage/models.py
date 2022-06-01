@@ -3,24 +3,27 @@ from django.db import models
 from django.utils import timezone
 
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
+class Issue(models.Model):
+    issue_topic = models.CharField(max_length=100)
+    issue_text = models.CharField(max_length=400)
+    issue_author = models.CharField(max_length=100)
+    issue_class = models.CharField(max_length=100)
     pub_date = models.DateTimeField('date published')
 
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
     def __str__(self):
-        return self.question_text
+        return self.issue_topic
 
 
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
+class Issue_comment(models.Model):
+    issue = models.ForeignKey(Issue, on_delete=models.CASCADE)
+    comment_text = models.CharField(max_length=400)
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.choice_text
+        return self.comment_text
 
 
 # DEBUG 
