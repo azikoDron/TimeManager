@@ -10,15 +10,22 @@ header, footer {
     margin: 0;
     padding 0;
     overflow: hidden;
+
 }
 .header1 .logo a {
     float: left;
     color: white;
     text-decoration: none;
 }
-.logo a:hover { color: red; }
 
-.header1 .login { float: right; }
+.header1 .login a {
+    float: right;
+    color: white;
+    text-decoration: none;
+}
+
+.header1 a:hover { color: red; }
+
 
 .banner_container {
     list-style-type: none;
