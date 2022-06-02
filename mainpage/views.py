@@ -27,10 +27,10 @@ class ResultsView(generic.DetailView):
     template_name = 'mainpage/results.html'
 
 
-def vote(request, issue):
-    issue = get_object_or_404(Issue, pk=issue)
+def vote(request, issue_id):
+    issue = get_object_or_404(Issue, pk=issue_id)
     try:
-        selected_issue = issue.choice_set.get(pk=request.POST['issue'])
+        selected_issue = issue.issue_comment_set.get(pk=request.POST['issue'])
     except(KeyError, Issue_comment.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'mainpage/detail.html', {
@@ -38,7 +38,7 @@ def vote(request, issue):
             'error_message': "You didn't select a choice.",
         })
     else:
-        selected_issue.comment_text += request.POST['issue']
+        selected_issue.comment_text = request.POST['issue']
         selected_issue.save()
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a

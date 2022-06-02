@@ -3,12 +3,12 @@
 
 {% block content %}
 
-<!--<h1>{{ issue.issue_text }}</h1>-->
-<!--<ul>-->
+<h1>{{ issue.issue_text }}</h1>
+<ul>
 <!--{% for issue in issue.issue_comment_set.all %}-->
-<!--    <li>{{ issue_comment.choice_text }} &#45;&#45; {{ issue_comment.votes }} vote{{ issue_comment.votes|pluralize }}</li>-->
+<!--    <li>{{ issue.choice_text }} &#45;&#45; {{ issue_comment.votes }} vote{{ issue_comment.votes|pluralize }}</li>-->
 <!--{% endfor %}-->
-<!--</ul>-->
-<!--<a href="{% url 'mainpage:detail' question.id %}">Vote again?</a>-->
+</ul>
+<a href="{% url 'mainpage:detail' issue.id %}">Vote again?</a>
 
 {% endblock content %}
