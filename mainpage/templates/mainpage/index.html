@@ -1,10 +1,16 @@
 {% extends "./base.html" %}
+{%block imports%}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'mainpage/aside_style.css' %}">
+{%endblock imports%}
+{% block left_aside %}
+<aside class="left_aside">
 
 
-{% block content %}
-<article>
+
     {% if latest_issue_list %}
-    <ul>
+    <ul class="news_list">
         {% for issue in latest_issue_list %}
         <li><a href="{% url 'mainpage:detail' issue.id %}">{{ issue.issue_topic }}</a></li>
         {% endfor %}
@@ -12,5 +18,5 @@
     {% else %}
     <p>No news are available.</p>
     {% endif %}
-</article>
-{% endblock content %}
+</aside>
+{% endblock left_aside %}

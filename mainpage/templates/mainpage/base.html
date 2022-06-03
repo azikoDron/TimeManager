@@ -8,6 +8,8 @@
     <title>{% block title%} Landing {% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'mainpage/style.css' %}">
+    {%block imports%}
+    {%endblock imports%}
 </head>
 <body>
     {% block header %}
@@ -24,7 +26,11 @@
     </ul>
     {% endblock header %}
 
-    <section></section>
+    {% block left_aside %}
+
+    {% endblock left_aside %}
+
+
     {% block content %}
 
     {% endblock content %}
