@@ -1,0 +1,14 @@
+{% extends "./base.html" %}
+
+
+{% block content %}
+
+<h1>{{ issue.issue_text }}</h1>
+<ul>
+<!--{% for issue in issue.issue_comment_set.all %}-->
+<!--    <li>{{ issue.choice_text }} &#45;&#45; {{ issue_comment.votes }} vote{{ issue_comment.votes|pluralize }}</li>-->
+<!--{% endfor %}-->
+</ul>
+<a href="{% url 'news_blog:detail' issue.id %}">Vote again?</a>
+
+{% endblock content %}
