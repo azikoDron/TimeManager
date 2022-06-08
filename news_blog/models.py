@@ -6,7 +6,6 @@ from django.utils import timezone
 class Issue(models.Model):
     issue_topic = models.CharField(max_length=100)
     issue_text = models.CharField(max_length=400)
-    issue_image = models.ImageField()
     issue_author = models.CharField(max_length=100)
     issue_class = models.CharField(max_length=100)
     pub_date = models.DateTimeField('date published')
@@ -25,6 +24,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.comment_text
+
+
+class Image(models.Model):
+    issue = models.ForeignKey(Issue, on_delete=models.CASCADE)
+    issue_image = models.ImageField(null=True)
 
 
 # DEBUG
