@@ -30,7 +30,7 @@ class ResultsView(generic.DetailView):
 def vote(request, issue_id):
     issue = get_object_or_404(Issue, pk=issue_id)
     try:
-        selected_issue = issue.issue_comment_set.get(pk=request.POST['issue'])
+        selected_issue = issue.comment_set.get(pk=request.POST['issue'])
     except(KeyError, Comment.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'news_blog/detail.html', {
