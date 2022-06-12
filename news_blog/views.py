@@ -40,7 +40,4 @@ def vote(request, issue_id):
     else:
         selected_issue.comment_text = request.POST['issue']
         selected_issue.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
         return HttpResponseRedirect(reverse('news_blog:detail', args=(issue.id,)))
