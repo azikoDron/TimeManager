@@ -29,3 +29,9 @@ class Comment(models.Model):
 class Image(models.Model):
     issue = models.ForeignKey(Issue, on_delete=models.CASCADE)
     issue_image = models.ImageField(null=True)
+
+
+# DEBUG
+# if __name__ == '__main__':
+    # q = Question()
+
