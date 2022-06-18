@@ -10,8 +10,6 @@ class IndexView(generic.ListView):
     template_name = 'mainpage/index.html'
     context_object_name = 'latest_issue_list'
 
-    # queryset = Question.objects.order_by('-pub_date')[:5]
-    # equivalent
     def get_queryset(self):
         """Return the last five published questions."""
         return Issue.objects.order_by('-pub_date')[:5]
@@ -32,7 +30,6 @@ def vote(request, issue_id):
     try:
         selected_issue = issue.comment_set.get(pk=request.POST['issue'])
     except(KeyError, Comment.DoesNotExist):
-        # Redisplay the question voting form.
         return render(request, 'news_blog/detail.html', {
             'issue': issue,
             'error_message': "You didn't select a choice.",
